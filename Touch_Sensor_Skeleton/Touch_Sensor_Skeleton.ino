@@ -1,14 +1,21 @@
 /*Replace all the ? in the code to read the value touchRead(GPIO pin) returned.*/
 
+
 #define TOUCHPIN 4                    // ***Replace the 4 with the GPIO pin you selected as touch pin
 #define LED 1                         // ***Replace the 5 with the GPIO pin you selected to control LED
 #define THRESHOLD 150000               // ***Observe the reading when the pin is touched. Then modify this threshold.***
 
 
+
+
 int touch_reading;
 
 void setup() {
+
   Serial.begin(9600);        // ***Start the serial communication set baud rate.***
+
+  Serial.begin(10000);        // ***Start the serial communication set baud rate.***
+
   pinMode(LED, OUTPUT);       // Set pin connected to LED as an output pin
   
 }
