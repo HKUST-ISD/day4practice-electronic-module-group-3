@@ -1,0 +1,24 @@
+#include <Arduino.h>
+#include "pitches.h"
+
+#define BUZZER_PIN 35
+
+void setup() {
+  Serial.begin(115200);
+}
+
+void loop() {
+
+  Serial.println("Playing F4...");
+  tone(BUZZER_PIN, NOTE_F4, 500);
+  delay(1000);
+  noTone(BUZZER_PIN);
+
+  Serial.println("Playing G4...");
+  tone(BUZZER_PIN, NOTE_G4, 500);
+  delay(1000);
+  noTone(BUZZER_PIN);
+
+  delay(2000);
+
+}

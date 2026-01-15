@@ -6,7 +6,7 @@
     You may refer to the file "pitches.h" in the same folder to see the available melodies.
 
 */
-#include "pitches.h" 
+#include "peaches.h" 
 // Built in BUZZER_PIN 35, it is already defined in ISDDevBoard.h
 #define BUZZER_PIN 35
 
@@ -18,20 +18,34 @@ int melody[] = {
 
 // note durations: 4 = quarter note, 8 = eighth note, 2= half note, 1= whole note
 int noteDurations[] = {
-  8, 8, 4, 8, 8, 4, 8, 8, 8, 8, 2, 8, 8, 8, 8, 4, 8, 8, 8, 8, 4, 8, 8, 8, 2
+  8, 8, 4, 8, 8, 4, 8, 8, 8, 8, 2, 8, 8, 4, 8, 8, 4, 8, 8, 8, 4, 8, 8, 8, 2, 4
 };
 
 void setup() {
 
-    Serial.begin(115200); 
-   
-
-    
+    Serial.begin(115200);  
 }
 
 
 
 void loop() {
+
+  Serial.println("Playing Jingle Bells...");
+
+  int totalNotes = sizeof(melody) / sizeof(melody[0]);
+
+  for (int i = 0; i < totalNotes; i++) {
+
+    int noteDuration = 1000 / noteDurations[i];
+    tone(BUZZER_PIN, melody[i], noteDuration);
+
+    delay(noteDuration * 1.3);
+    noTone(BUZZER_PIN);
+  }
+
+  delay(3000);
+}
+
     /*
         "tone()" is a built-in Arduino function that plays a tone on a buzzer.
         Parameters:
@@ -78,4 +92,4 @@ void loop() {
 
 
 
-}
+
